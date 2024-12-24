@@ -1,0 +1,543 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(72deg, rgb(65, 65, 255) 1%, rgb(128, 128, 211) 99%);
+    display: grid;
+    place-items: center;
+}
+
+.box {
+    position: relative;
+    width: 18em;
+    height: 18em;
+}
+
+.box-tape,
+.box-tape-left,
+.box-tape-right,
+.box-tape-center,
+.box-gifts,
+.box-gift-shadow,
+.box-gift,
+.box-star {
+    position: absolute;
+}
+
+.box-tape,
+.box-tape-left,
+.box-tape-right,
+.box-tape-center {
+    background-color: rgb(254, 48, 48);
+}
+
+.box-tape {
+    cursor: pointer;
+    animation: bTape 1.5s ease-in-out infinite;
+    bottom: 11em;
+    left: 7.5em;
+    width: 3em;
+    height: 2em;
+    transform-origin: 50% 230%;
+}
+
+.box-tape-center {
+    background-color: rgb(255, 145, 145);
+    border-radius: 1em;
+    width: 100%;
+    height: 100%;
+}
+
+.box-tape-left,
+.box-tape-right {
+    box-shadow: 0 0 0 0.7em rgb(255, 132, 132) inset;
+    top: 0.3em;
+    width: 4em;
+    height: 5em;
+    z-index: -1;
+}
+
+.box-tape-left::before,
+.box-tape-right::before {
+    background-color: red, red;
+    border-radius: inherit;
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+}
+
+.box-tape-left {
+    animation: bLeft 1.5s ease-in-out infinite;
+    border-radius: 1.5em 0 3em 1em / 1.5em 0 3em 3.5em;
+    right: calc(100% - 0.75em);
+    transform: rotate(50deg);
+    transform-origin: 100% 15%;
+}
+
+.box-tape-left::before {
+    clip-path: polygon(0 42%, 100% 12%, 100% 100%, 0 100%);
+}
+
+.box-tape-right {
+    animation: bRight 1.5s ease-in-out infinite;
+    border-radius: 0 1.5em 1em 3em / 0 1.5em 3.5em 3em;
+    left: calc(100% - 0.75em);
+    transform: rotate(-50deg);
+    transform-origin: 0% 15%;
+}
+
+.box-tape-right::before {
+    clip-path: polygon(0 12%, 100% 12%, 100% 100%, 0 100%);
+}
+
+.box-gifts {
+    cursor: pointer;
+    animation: box-Bounce 1.5s ease-in-out infinite;
+    background: linear-gradient(#ffb0b0, rgb(255, 41, 41)) 50% 50% / 3.3em 100% no-repeat, white;
+    border-radius: 1.5em;
+    bottom: 0.5em;
+    left: 3.3em;
+    overflow: hidden;
+    width: 11.4em;
+    height: 9em;
+}
+
+.box-gift {
+    animation: box-Bounce2 1.5s ease-in-out infinite;
+    background: linear-gradient(#ffb0b0, rgb(255, 0, 0)) 50% 50% / 3.3em 100% no-repeat, white;
+    border-radius: 1em;
+    width: 13em;
+    height: 3.3em;
+    bottom: 8.7em;
+    left: 2.5em;
+}
+
+.box-gift-shadow {
+    animation: boxShadowBounce 1.5s ease-in-out infinite;
+    background-color: #efefef;
+    border-radius: 1em;
+    width: 13em;
+    height: 3.3em;
+    top: -1.5em;
+    left: -1em;
+}
+
+.box-star-explosion {
+    position: absolute;
+    background-color: rgb(202, 202, 202);
+    clip-path: polygon(50% 0, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0 50%, 35% 35%);
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.box-star {
+    animation: starRotate1 1.5s ease-in-out infinite;
+    background-color: rgb(202, 202, 202);
+    clip-path: polygon(50% 0, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0 50%, 35% 35%);
+    transform: scale(0);
+}
+
+.box-star-1 {
+    animation-delay: 0.75s;
+    top: 0;
+    left: 12.5em;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.box-star-2 {
+    animation-delay: 0.1875s;
+    top: 2em;
+    left: 10em;
+    width: 1.75em;
+    height: 1.75em;
+}
+
+.box-star-3 {
+    animation-delay: 0.375s;
+    top: 8em;
+    left: 0;
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.box-star-4 {
+    animation-delay: 0.5s;
+    top: 10.5em;
+    right: 0;
+    width: 1.75em;
+    height: 1.75em;
+}
+
+.box-star-5 {
+    animation-delay: 0.5625s;
+    top: 12em;
+    left: 1.8em;
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.content {
+    height: 520px;
+    width: 90%;
+    max-width: 935px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.navegation {
+    position: absolute;
+    bottom: 11px;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+}
+
+.navegation {
+    display: grid;
+    grid-template-rows: repeat(11, 1fr); /* 12 linhas iguais */
+    grid-auto-flow: column; /* Preenche as linhas primeiro */
+    gap: 10px; /* Espaçamento entre os elementos */
+    width: 100%; /* Certifique-se de que o contêiner ocupe a largura desejada */
+}
+
+.bar {
+    width: 50px;
+    height: 17px;
+    border: 3px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+
+.bar:hover {
+    background-color: white;
+}
+
+input {
+    display: none;
+}
+
+.slides {
+    display: flex;
+    width: 5500%; /*pq são 55 imagens,55*100% */
+    height: 100%;
+}
+
+.slide {
+    width: 1.818%; /* muda de acordo com a quantidade de slides,como são 55/100% = 1.818%  */
+    transition: margin-left 0.4s ease;
+}
+
+.slide img,
+.slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#slide1:checked ~ .s1 {
+    margin-left: 0;
+}
+#slide2:checked ~ .s1 {
+    margin-left: -1.8%;
+}
+#slide3:checked ~ .s1 {
+    margin-left: -3.6%;
+}
+#slide4:checked ~ .s1 {
+    margin-left: -5.4%;
+}
+#slide5:checked ~ .s1 {
+    margin-left: -7.2%;
+}
+#slide6:checked ~ .s1 {
+    margin-left: -9.1%;
+}
+#slide7:checked ~ .s1 {
+    margin-left: -10.9%;
+}
+#slide8:checked ~ .s1 {
+    margin-left: -12.7%;
+}
+#slide9:checked ~ .s1 {
+    margin-left: -14.5%;
+}
+#slide10:checked ~ .s1 {
+    margin-left: -16.3%;
+}
+#slide11:checked ~ .s1 {
+    margin-left: -18.1%;
+}
+#slide12:checked ~ .s1 {
+    margin-left: -20%;
+}
+#slide13:checked ~ .s1 {
+    margin-left: -21.8%;
+}
+#slide14:checked ~ .s1 {
+    margin-left: -23.6%;
+}
+#slide15:checked ~ .s1 {
+    margin-left: -25.4%;
+}
+#slide16:checked ~ .s1 {
+    margin-left: -27.2%;
+}
+#slide17:checked ~ .s1 {
+    margin-left: -29%;
+}
+#slide18:checked ~ .s1 {
+    margin-left: -30.9%;
+}
+#slide19:checked ~ .s1 {
+    margin-left: -32.7%;
+}
+#slide20:checked ~ .s1 {
+    margin-left: -34.5%;
+}
+#slide21:checked ~ .s1 {
+    margin-left: -36.36%;
+}
+#slide22:checked ~ .s1 {
+    margin-left: -38.2%;
+}
+#slide23:checked ~ .s1 {
+    margin-left: -40%;
+}
+#slide24:checked ~ .s1 {
+    margin-left: -41.8%;
+}
+#slide25:checked ~ .s1 {
+    margin-left: -43.6%;
+}
+#slide26:checked ~ .s1 {
+    margin-left: -45.4%;
+}
+#slide27:checked ~ .s1 {
+    margin-left: -47.2%;
+}
+#slide28:checked ~ .s1 {
+    margin-left: -49.1%;
+}
+#slide29:checked ~ .s1 {
+    margin-left: -50.9%;
+}
+#slide30:checked ~ .s1 {
+    margin-left: -52.7%;
+}
+#slide31:checked ~ .s1 {
+    margin-left: -54.5%;
+}
+#slide32:checked ~ .s1 {
+    margin-left: -56.3%;
+}
+#slide33:checked ~ .s1 {
+    margin-left: -58.2%;
+}
+#slide34:checked ~ .s1 {
+    margin-left: -60%;
+}
+#slide35:checked ~ .s1 {
+    margin-left: -61.8%;
+}
+#slide36:checked ~ .s1 {
+    margin-left: -63.63%;
+}
+#slide37:checked ~ .s1 {
+    margin-left: -65.45%;
+}
+#slide38:checked ~ .s1 {
+    margin-left: -67.27%;
+}
+#slide39:checked ~ .s1 {
+    margin-left: -69.09%;
+}
+#slide40:checked ~ .s1 {
+    margin-left: -70.90%;
+}
+#slide41:checked ~ .s1 {
+    margin-left: -72.72%;
+}
+#slide42:checked ~ .s1 {
+    margin-left: -74.54%;
+}
+#slide43:checked ~ .s1 {
+    margin-left: -76.36%;
+}
+#slide44:checked ~ .s1 {
+    margin-left: -78.2%;
+}
+#slide45:checked ~ .s1 {
+    margin-left: -80%;
+}
+#slide46:checked ~ .s1 {
+    margin-left: -81.8%;
+}
+#slide47:checked ~ .s1 {
+    margin-left: -83.6%;
+}
+#slide48:checked ~ .s1 {
+    margin-left: -85.4%;
+}
+#slide49:checked ~ .s1 {
+    margin-left: -87.3%;
+}
+#slide50:checked ~ .s1 {
+    margin-left: -89.1%;
+}
+#slide51:checked ~ .s1 {
+    margin-left: -90.9%;
+}
+#slide52:checked ~ .s1 {
+    margin-left: -92.7%;
+}
+#slide53:checked ~ .s1 {
+    margin-left: -94.5%;
+}
+#slide54:checked ~ .s1 {
+    margin-left: -96.3%;
+}
+#slide55:checked ~ .s1 {
+    margin-left: -98.2%;
+}
+
+.arrow {
+    position: absolute;
+    top: 24%;
+    left: 29%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    animation: apontar 1s infinite;
+    background: linear-gradient(rgb(255, 235, 235), rgb(148, 26, 26));
+    clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+}
+
+.title {
+    position: absolute;
+    top: 40%;
+    left: 28%;
+    font-size: 28px;
+}
+
+.imgMulequeTranquilo {
+    position: absolute;
+    top: 19%;
+    left: 26.5%;
+    width: 10%;
+    height: auto; /* Mantém a proporção da imagem */
+    transform: scale(0.22); /* Reduz o tamanho para 50% */
+}
+
+/* adequa-se á telas pequenas */
+@media (max-width: 600px) {
+    .content {
+        height: 300px;
+    }
+    .bar {
+        width: 30px;
+        height: 10px;
+    }
+}
+
+/* Animações */
+@keyframes bTape {
+    0%, 50% {
+        transform: translateY(0) rotate(0);
+    }
+    62.5% {
+        transform: translateY(65%) rotate(0);
+    }
+    68.75% {
+        transform: translateY(-37.5%) rotate(15deg);
+    }
+    75% {
+        transform: translateY(-140%) rotate(5deg);
+    }
+    87.5% {
+        transform: translateY(65%) rotate(-3deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+}
+
+@keyframes box-Bounce {
+    0%, 50% {
+        transform: translateY(0) scale(1, 1);
+    }
+    62.5% {
+        transform: translateY(4%) scale(1.2, 0.89);
+    }
+    75% {
+        transform: translateY(-11%) scale(0.92, 1.1);
+    }
+    87.5% {
+        transform: translateY(0) scale(1.05, 0.9);
+    }
+    100% {
+        transform: translateY(0) scale(1, 1);
+    }
+}
+
+@keyframes box-Bounce2 {
+    0%, 50% {
+        transform: translateY(0) rotate(0);
+    }
+    62.5% {
+        transform: translateY(75%) rotate(0);
+    }
+    68.75% {
+        transform: translateY(-37.5%) rotate(15deg);
+    }
+    75% {
+        transform: translateY(-130%) rotate(5deg);
+    }
+    87.5% {
+        transform: translateY(62%) rotate(-6deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+}
+
+@keyframes starRotate1 {
+    0% {
+        transform: scale(0) rotate(0);
+    }
+    25% {
+        transform: scale(2) rotate(0.40turn);
+    }
+    50%, 100% {
+        transform: scale(0) rotate(0.5turn);
+    }
+}
+
+@keyframes apontar {
+    0% {
+        transform: translate(0, 0); /* Posição inicial */
+    }
+    50% {
+        transform: translate(50px, 0px); /* Move para o ponto alvo */
+    }
+    100% {
+        transform: translate(0, 0); /* Retorna ao ponto inicial */
+    }
+}
