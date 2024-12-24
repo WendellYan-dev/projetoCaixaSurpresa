@@ -190,7 +190,7 @@ body {
 
 .content {
     height: 520px;
-    width: 90%;
+    width: 50%;
     max-width: 935px;
     border-radius: 20px;
     overflow: hidden;
@@ -446,7 +446,7 @@ input {
     transform: scale(0.22); /* Reduz o tamanho para 50% */
 }
 
-/* adequa-se á telas pequenas */
+/* adequa-se á telas pequenas*/
 @media (max-width: 600px) {
     .content {
         height: 300px;
@@ -454,6 +454,9 @@ input {
     .bar {
         width: 30px;
         height: 10px;
+    }
+    .navegation {
+        bottom: 30px;
     }
 }
 
