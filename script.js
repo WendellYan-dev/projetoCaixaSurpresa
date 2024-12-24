@@ -1,5 +1,5 @@
 // Define a data e hora em que a caixa poderá ser aberta
-const unlockDate = new Date("2024-12-01T20:08:08"); // Altere para a data e hora desejadas
+const unlockDate = new Date("2024-12-31T20:08:08"); // Altere para a data e hora desejadas
 
 // Seleciona os elementos da página
 const giftBox = document.getElementById("giftBox");
