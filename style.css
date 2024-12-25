@@ -210,24 +210,30 @@ body {
 
 .navegation {
     display: grid;
-    grid-template-rows: repeat(11, 1fr); /* 12 linhas iguais */
+    grid-template-rows: repeat(5, 1fr); /* 12 linhas iguais */
     grid-auto-flow: column; /* Preenche as linhas primeiro */
     gap: 10px; /* Espaçamento entre os elementos */
     width: 100%; /* Certifique-se de que o contêiner ocupe a largura desejada */
 }
 
 .bar {
-    width: 50px;
-    height: 17px;
+    width: 40px;
+    height: 16px;
     border: 3px solid white;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.4s;
 }
 
-
 .bar:hover {
     background-color: white;
+}
+
+/* Esconde as barras quando o mouse estiver sobre um slide (imagem ou vídeo) */
+.slide:hover ~ .navegation {
+    opacity: 0; /* Torna as barras invisíveis */
+    pointer-events: none; /* Impede interação com as barras */
+    transition: opacity 0.6s ease; /* Animação suave */
 }
 
 input {
